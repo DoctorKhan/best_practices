@@ -12,3 +12,5 @@ Best practices
 - The development machine can be a single machine that does not need to be tested for high bandwidth, etc. It simply needs to be able to run the main tests that need to be passed before deployment
 	- After it has passed the tests, merge the development branch into the main branch and push from the development machine to github. Then pull onto production machine. This is okay in a small team.
 	- Alternatively, you may do a pull request instead of merging into main. This gives your admin the ability to check changes before merging.
+
+- also only after add testing merge to main branch.
