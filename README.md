@@ -13,4 +13,4 @@ Best practices
 	- After it has passed the tests, merge the development branch into the main branch and push from the development machine to github. Then pull onto production machine. This is okay in a small team.
 	- Alternatively, you may do a pull request instead of merging into main. This gives your admin the ability to check changes before merging.
 
-- also only after add testing merge to main branch.
+- also only after adequate testing merge to main branch.
