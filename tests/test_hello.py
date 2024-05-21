@@ -1,7 +1,7 @@
 import unittest
 
 def hello_world():
-#    return "Hello, World!"
+    return "Hello, World!"
 
 class TestHelloWorld(unittest.TestCase):
     def test_hello_world(self):
