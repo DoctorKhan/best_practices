@@ -51,8 +51,8 @@ By adhering to these best practices, software engineers can create software that
 1. **Branch Structure**
    - Maintain three branches: main, staging, and development.
 2. **Testing Branch**
-   - The testing branch should initially fail tests.
-   - Once all tests pass, merge the development branch into staging.
+   - The development branch should initially fail tests.
+   - Once all unit tests pass, merge the development branch into staging.
 3. **Development Branch**
    - The main branch should always pass tests (always green).
    - Deploy the staging branch to a staging server for user acceptance testing.
