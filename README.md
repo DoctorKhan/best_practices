@@ -30,19 +30,19 @@ By adhering to these best practices, software engineers can create software that
    - Monitor the server for bandwidth, connections, and resource usage to ensure high uptime.
    - Use a second machine to continuously monitor the server's availability and responsiveness.
    - The staging server may go down periodically if there are bugs, etc.
-   - The development machine should go down every time there are code changes.
+   - The staging machine should go down every time there are code changes.
 3. **Environment Separation**
    - Separate the production environment from the staging and development environments.
    - The production environment will always be on the main branch of all repositories.
    - The staging will always be on the staging branch of all repositories.
-   - The production server will always be on the main branch of all repositories.
+   - The development environment will always be on the development branch of all repositories.
      
 4. **Deployment**
    - Use tools like SCP, rsync, Heroku, GitHub Actions, Puppet, or other DevOps systems for continuous deployment.
 
 ## Code Usability
 1. Ensure code is usable by all engineers, locally deployable, testable, and reproducible.
-2. The development machine should run main tests before deployment.
+2. The development machine should run unit tests.
 
 ## Handling Blockers
 1. Assess and seek help immediately when encountering a blocker.
@@ -52,18 +52,19 @@ By adhering to these best practices, software engineers can create software that
    - Maintain three branches: main, staging, and development.
 2. **Testing Branch**
    - The testing branch should initially fail tests.
-   - Once all tests pass, merge the testing branch into development.
+   - Once all tests pass, merge the development branch into staging.
 3. **Development Branch**
-   - The development branch should always pass tests (always green).
-   - Deploy the development branch to a staging server for user acceptance testing.
+   - The main branch should always pass tests (always green).
+   - Deploy the staging branch to a staging server for user acceptance testing.
    - If it works well in the staging server, then merge it into the main branch and deploy it to the production server.
    
 ## Test Driven Development (TDD)
 1. Write the test first that fails (red), then commit code to testing.
 2. Write code until the test passes (green).
-3. Commit code and merge it into development.
+3. Commit code and merge it into the next branch.
 
 ## Deployment Procedure
-1. After passing tests, merge the development branch into the main branch.
-2. Push from the development machine to GitHub, then pull onto the staging or production machine.
-3. Do a pull request for code reviewing before merging into the main branch.
+1. After passing unit tests, merge the development branch into the staging branch.
+2. After passing integration tests, deploy the staging branch to staging server.
+3. After passing live testing, do a pull request for code reviewing before merging into the main branch.
+4. After code review, accept the pull request to be merged into main and deploy to production server
