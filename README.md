@@ -20,17 +20,24 @@ Software engineering best practices are a set of guidelines and principles that 
 
 By adhering to these best practices, software engineers can create software that is more reliable, easier to maintain, and better aligned with user needs and business goals. However, it's important to note that best practices may vary depending on the specific context, technology stack, and project requirements, so it's crucial to adapt and apply them accordingly.
 
-## Production Server
-1. **Availability and Stability**
+## Servers
+1. **Three Servers**
+   - Production: This is the one that is available to your users. It should always stay up and be continually monitored. It should always stay on the main branch.
+   - Staging: This runs in an environment identical to the production server, but is used to test functionality and integration tests before deploying to production.
+   - Development: This can be your local machine. Run unit tests here and local deployments. Optionally, integration tests.
+2. **Availability and Stability**
    - The production server must be available and stable at all times without interruption.
    - Monitor the server for bandwidth, connections, and resource usage to ensure high uptime.
    - Use a second machine to continuously monitor the server's availability and responsiveness.
-2. **Environment Separation**
-   - Separate the production environment from the development environment.
+   - The staging server may go down periodically if there are bugs, etc.
+   - The development machine should go down every time there are code changes.
+3. **Environment Separation**
+   - Separate the production environment from the staging and development environments.
    - The production environment will always be on the main branch of all repositories.
-   - The production server will only pull the latest branch after all tests have passed.
+   - The staging will always be on the staging branch of all repositories.
+   - The production server will always be on the main branch of all repositories.
      
-3. **Deployment**
+4. **Deployment**
    - Use tools like SCP, rsync, Heroku, GitHub Actions, Puppet, or other DevOps systems for continuous deployment.
 
 ## Code Usability
@@ -42,7 +49,7 @@ By adhering to these best practices, software engineers can create software that
 
 ## Branch Management
 1. **Branch Structure**
-   - Maintain three branches: main, development, and testing.
+   - Maintain three branches: main, staging, and development.
 2. **Testing Branch**
    - The testing branch should initially fail tests.
    - Once all tests pass, merge the testing branch into development.
