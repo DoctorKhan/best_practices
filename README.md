@@ -20,8 +20,11 @@ Software engineering best practices are a set of guidelines and principles that 
 
 By adhering to these best practices, software engineers can create software that is more reliable, easier to maintain, and better aligned with user needs and business goals. However, it's important to note that best practices may vary depending on the specific context, technology stack, and project requirements, so it's crucial to adapt and apply them accordingly.
 
-## Servers
-1. **Three Servers**
+## Machines
+
+There are three different environments, typically existing on three different machines that will be deployed to periodically.
+
+1. **Three Machines**
    - Production: This is the one that is available to your users. It should always stay up and be continually monitored. It should always stay on the main branch.
    - Staging: This runs in an environment identical to the production server, but is used to test functionality and integration tests before deploying to production.
    - Development: This can be your local machine. Run unit tests here and local deployments. Optionally, integration tests.
@@ -48,23 +51,15 @@ By adhering to these best practices, software engineers can create software that
 1. Assess and seek help immediately when encountering a blocker.
 
 ## Branch Management
-1. **Branch Structure**
-   - Maintain three branches: main, staging, and development.
-2. **Development Branch**
-   - The development branch should initially fail tests.
-   - Once all unit tests pass, merge the development branch into staging.
-3. **Staging Branch**
-   - The main branch should always pass tests (always green).
-   - Deploy the staging branch to a staging server for user acceptance testing.
-   - If it works well in the staging server, then merge it into the main branch and deploy it to the production server.
-   
+Maintain four branches: red, green, main, release. Red and green are deployed to the development machine, main is deployed to staging, and release to production machine.
+
+1. **Deployment**
+   - The red branch should be deployed to the development machine (your local machine). It should always fail some unit tests. Once all unit tests pass, merge it into the green branch squashing all commits.
+   - The green branch should be deployed to the development machine (your lcoal machine). It should always pass all unit tests. Once it passes all integration tests, merge it into the main branch squashing all commits.
+   - The main branch should be deployed to the staging machine. Once it passes all alpha and beta tests, it should be merged into a release branch.
+   - The release branch should be deployed to the production machine.
+
 ## Test Driven Development (TDD)
 1. Write the test first that fails (red), then commit code to testing.
 2. Write code until the test passes (green).
 3. Commit code and merge it into the next branch.
-
-## Deployment Procedure
-1. After passing unit tests, merge the development branch into the staging branch.
-2. After passing integration tests, deploy the staging branch to staging server.
-3. After passing live testing, do a pull request for code reviewing before merging into the main branch.
-4. After code review, accept the pull request to be merged into main and deploy to production server
