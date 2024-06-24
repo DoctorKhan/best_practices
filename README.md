@@ -40,13 +40,6 @@ There are three different environments, typically existing on three different ma
    - The staging will always be on the staging branch of all repositories.
    - The development environment will always be on the development branch of all repositories.
      
-4. **Deployment**
-   - Use tools like SCP, rsync, Heroku, GitHub Actions, Puppet, or other DevOps systems for continuous deployment.
-
-## Code Usability
-1. Ensure code is usable by all engineers, locally deployable, testable, and reproducible.
-2. The development machine should run unit tests.
-
 ## Handling Blockers
 1. Assess and seek help immediately when encountering a blocker.
 
@@ -58,6 +51,9 @@ Maintain four branches: red, green, main, release. Red and green are deployed to
    - The green branch should be deployed to the development machine (your lcoal machine). It should always pass all unit tests. Once it passes all integration tests, merge it into the main branch squashing all commits.
    - The main branch should be deployed to the staging machine. Once it passes all alpha and beta tests, it should be merged into a release branch.
    - The release branch should be deployed to the production machine.
+2. **Tools**
+   - Use tools like SCP, rsync, Heroku, GitHub Actions, Puppet, or other DevOps systems for continuous deployment.
+
 
 ## Test Driven Development (TDD)
 1. Write the test first that fails (red), then commit code to testing.
