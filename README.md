@@ -17,6 +17,7 @@ Software engineering best practices are a set of guidelines and principles that 
 13. Communicating effectively with team members, stakeholders, and clients
 14. Staying up-to-date with the latest technologies and industry trends
 15. Following agile development methodologies (e.g., Scrum, Kanban) to adapt to changing requirements and deliver value incrementally
+16. Assess and seek help immediately when encountering a blocker.
 
 By adhering to these best practices, software engineers can create software that is more reliable, easier to maintain, and better aligned with user needs and business goals. However, it's important to note that best practices may vary depending on the specific context, technology stack, and project requirements, so it's crucial to adapt and apply them accordingly.
 
@@ -34,28 +35,28 @@ There are three different environments, typically existing on three different ma
    - Use a second machine to continuously monitor the server's availability and responsiveness.
    - The staging server may go down periodically if there are bugs, etc.
    - The staging machine should go down every time there are code changes.
-3. **Environment Separation**
-   - Separate the production environment from the staging and development environments.
-   - The production environment will always be on the main branch of all repositories.
-   - The staging will always be on the staging branch of all repositories.
-   - The development environment will always be on the development branch of all repositories.
-     
-## Handling Blockers
-1. Assess and seek help immediately when encountering a blocker.
+
+## Test Driven Development (TDD)
+1. Write the test first that fails (red), then commit code to red branch.
+2. Write code until the test passes (green), then merge code into the green branch.
+3. Commit code and merge it into the next branch as appropriate.
+
+## Environments
+3. **Two Environments**
+   - There are two environments: the production environment and the development environment.
+   - Use the development environment while you are developing the code. The production environment is what runs the final application which the users use.
+   - The production environment will be set up on the production machine and the staging machine. They must be identical to ensure there are no changes between the staging and production.
+   - The main and release branches are in the production environment.
+   - The red and green branches are in the development environment.
 
 ## Branch Management
 Maintain four branches: red, green, main, release. Red and green are deployed to the development machine, main is deployed to staging, and release to production machine.
 
 1. **Deployment**
    - The red branch should be deployed to the development machine (your local machine). It should always fail some unit tests. Once all unit tests pass, merge it into the green branch squashing all commits.
-   - The green branch should be deployed to the development machine (your lcoal machine). It should always pass all unit tests. Once it passes all integration tests, merge it into the main branch squashing all commits.
+   - The green branch should be deployed to the development machine (your local machine). It should always pass all unit tests. Once it passes all integration tests, merge it into the main branch squashing all commits.
    - The main branch should be deployed to the staging machine. Once it passes all alpha and beta tests, it should be merged into a release branch.
    - The release branch should be deployed to the production machine.
 2. **Tools**
    - Use tools like SCP, rsync, Heroku, GitHub Actions, Puppet, or other DevOps systems for continuous deployment.
 
-
-## Test Driven Development (TDD)
-1. Write the test first that fails (red), then commit code to testing.
-2. Write code until the test passes (green).
-3. Commit code and merge it into the next branch.
