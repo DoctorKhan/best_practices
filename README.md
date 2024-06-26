@@ -40,6 +40,7 @@ There are three different environments, typically existing on three different ma
 1. Write the test first that fails (red), then commit code to red branch.
 2. Write code until the test passes (green), then merge code into the green branch.
 3. Commit code and merge it into the next branch as appropriate.
+4. If you have time, test coverage should include these UX paths: golden, happy, sad, and bad paths
 
 ## Environments
 3. **Two Environments**
