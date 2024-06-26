@@ -57,6 +57,7 @@ Maintain four branches: red, green, main, release. Red and green are deployed to
    - The green branch should be deployed to the development machine (your local machine). It should always pass all unit tests. Once it passes all integration tests, merge it into the main branch squashing all commits.
    - The main branch should be deployed to the staging machine. Once it passes all alpha and beta tests, it should be merged into a release branch.
    - The release branch should be deployed to the production machine.
+   - Do not push to release. Always do a pull request for the release. Perhaps do a pull request to main as well, depending on your manager.
 2. **Tools**
    - Use tools like SCP, rsync, Heroku, GitHub Actions, Puppet, or other DevOps systems for continuous deployment.
 
