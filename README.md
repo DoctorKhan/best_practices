@@ -42,8 +42,8 @@ There are three different environments, typically existing on three different ma
 3. Commit code and merge it into the next branch as appropriate.
 4. If you have time, test coverage should include these UX paths: golden, happy, sad, and bad paths
 
-## Environments
-3. **Two Environments**
+## Two Environments
+1. **Environments**
    - There are two environments: the production environment and the development environment.
    - Use the development environment while you are developing the code. The production environment is what runs the final application which the users use.
    - The production environment will be set up on the production machine and the staging machine. They must be identical to ensure there are no changes between the staging and production.
@@ -54,11 +54,21 @@ There are three different environments, typically existing on three different ma
 Maintain four branches: red, green, main, release. Red and green are deployed to the development machine, main is deployed to staging, and release to production machine.
 
 1. **Deployment**
-   - The red branch should be deployed to the development machine (your local machine). It should always fail some unit tests. Once all unit tests pass, merge it into the green branch squashing all commits.
-   - The green branch should be deployed to the development machine (your local machine). It should always pass all unit tests. Once it passes all integration tests, merge it into the main branch squashing all commits.
-   - The main branch should be deployed to the staging machine. Once it passes all alpha and beta tests, it should be merged into a release branch.
-   - The release branch should be deployed to the production machine.
-   - Do not push to release. Always do a pull request for the release. Perhaps do a pull request to main as well, depending on your manager.
+   - The red branch
+      - should be deployed to the development machine (your local machine).
+      - It should always fail some unit tests.
+      - Commit broken code to the red branch liberally, each day. This ensures transparency.
+      - Once all unit tests pass, merge it into the green branch squashing all commits.
+   - The green branch
+      - should be deployed to the development machine (your local machine).
+      - It should always pass all unit tests.
+      - Once it passes all integration tests, merge it into the main branch squashing all commits.
+   - The main branch
+      - should be deployed to the staging machine.
+      - Once it passes all alpha and beta tests, it should be merged into a release branch.
+      - The release branch should be deployed to the production machine.
+   - Do not push to release branch. Always do a pull request for the release.
+   - Perhaps do a pull request to main as well, depending on your manager.
 2. **Tools**
    - Use tools like SCP, rsync, Heroku, GitHub Actions, Puppet, or other DevOps systems for continuous deployment.
 
