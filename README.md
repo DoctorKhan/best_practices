@@ -1,5 +1,14 @@
 # Best Practices
 
+## Transparency
+
+Engineers should commit frequently and push code every day. In the short-term, this kind of communication is critical when team members are in different time zones. On a day-to-day basis it enables one to share progress more effectively, requiring fewer meetings. For managers, it is important to track the direction of the code, or the activities of engineers, even before major commits to working branches. These may be done in branches which contain consistently broken code. Hereafter referred to as "red" branches. The red branch should contain many commits per day indicating what the engineer is working on.
+
+When the code can pass the unit tests, the commits may be squashed and merged onto a working branch (green branch). In the long run, good git commits should tell a story. Step-by-step how was the project built? These changes enable one to identify and track potentially breaking changes, as well as enable new team members to learn the code faster. 
+
+
+## General rules
+
 Software engineering best practices are a set of guidelines and principles that help developers create high-quality, maintainable, and efficient software. Some key best practices include:
 
 1. Writing clean, readable, and well-commented code
@@ -42,7 +51,7 @@ There are three different environments, typically existing on three different ma
 3. Commit code and merge it into the next branch as appropriate.
 4. If you have time, test coverage should include these UX paths: golden, happy, sad, and bad paths
 
-## Two Environments
+## Separation of Environments
 1. **Environments**
    - There are two environments: the production environment and the development environment.
    - Use the development environment while you are developing the code. The production environment is what runs the final application which the users use.
