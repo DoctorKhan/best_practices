@@ -79,19 +79,19 @@ There are three different environments, typically existing on three different ma
 Maintain four branches: red, green, main, release. Red and green are deployed to the development machine, main is deployed to staging, and release to production machine.
 
 1. **Deployment**
-   - The red branch
+   - The test branch
       - should be deployed to the development machine (your local machine).
       - It should always fail some unit tests.
       - Commit broken code to the red branch liberally, each day. This ensures transparency.
-      - Once all unit tests pass, merge it into the green branch squashing all commits.
-   - The green branch
+      - Once all unit tests pass, merge it into the next branch (feature) squashing all commits.
+   - The feature branch
       - should be deployed to the development machine (your local machine).
       - It should always pass all unit tests.
-      - Once it passes all integration tests, merge it into the main branch squashing all commits.
+      - Once it passes all integration tests, merge it into the alpha branch squashing all commits.
    - The main branch
       - should be deployed to the staging machine.
-      - Once it passes all alpha and beta tests, it should be merged into a release branch.
-      - The release branch should be deployed to the production machine.
+      - Once it passes all alpha and beta tests, it should be merged into a main branch.
+      - The main branch should be deployed to the production machine.
    - Do not push to release branch. Always do a pull request for the release.
    - Perhaps do a pull request to main as well, depending on your manager.
 2. **Tools**
