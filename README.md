@@ -6,6 +6,22 @@ Engineers should commit frequently and push code every day. In the short-term, t
 
 When the code can pass the unit tests, the commits may be squashed and merged onto a working branch (green branch). In the long run, good git commits should tell a story. Step-by-step how was the project built? These changes enable one to identify and track potentially breaking changes, as well as enable new team members to learn the code faster. 
 
+## Branch Structure
+
+| Environment  | Branch Name | Branch Type | Purpose
+|--------------|-------------|--------------|-------------|
+| **Development**	| test		| red | make tests, fixes, and new features
+|              		| feature	| green | incorporate working features
+| **Production**	| alpha		| red | internal user testing live
+|              		| main		| green | released to public live
+|              		| release	| tagged | historical stable version releases
+
+## Communication
+
+Try to increase points of contact, checks, audits, milestones, and roadmaps. Reduce meetings, especially unstructued ones.
+
+
+
 
 ## General rules
 
